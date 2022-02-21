@@ -1,0 +1,54 @@
+.div-card{
+    border-style: solid;
+    border-color: #E55812;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    width: 80%;
+    height: fit-content;
+    position: center;
+}
+h1{
+    margin-top: 3%;
+    margin-left: 6%;
+}
+
+.content{
+    margin-left: 6%;
+    color: black;
+    opacity: 100%;
+}
+.prices{
+    // margin-top: 50%;
+    margin-left: 75%;
+    .price{
+        font-size:20px;
+    }
+}
+
+
+
+
+.tipo{
+    background-color: #dd895e;
+    border-radius: 20px;
+    padding: 8px;
+    width: fit-content;
+    block-size: fit-content;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

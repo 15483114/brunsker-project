@@ -1,0 +1,27 @@
+<div class="div-card">
+    <h1>{{propriedade.nome}}</h1>
+    <div class="content">
+        
+        <div>
+            <input type="submit" value="Deletar" (click) ="deletarPropriedade()">
+          </div>
+        <p>Quartos: {{propriedade.quartos}}</p>
+        <p>Banheiros: {{propriedade.banheiros}}</p>
+        <p>Área: {{propriedade.area}}</p>
+        <div>
+            <div class="tipo" *ngIf="propriedade.venda">Venda</div>
+            <div class="tipo" *ngIf="propriedade.aluguel">Aluguel</div>
+            <div class="tipo" *ngIf="propriedade.mobiliado">Mobiliado</div>
+        </div>
+        <div class="prices">
+            <p class="price">Valor: R${{propriedade.valor}}</p>
+        
+            <p class="price">Condomínio: R${{propriedade.condominio}}</p>
+    
+        </div>
+        
+       
+       
+    </div>
+   
+</div>

@@ -1,0 +1,182 @@
+
+    <div class="container">
+      <h1>Cadastrar imóveis</h1>
+<hr>
+<form>
+    <p>Nome do proprietário: <input type="text" name="proprietario" [(ngModel)] ="proprietario.nome" (blur) ="buscarProprietario()"></p>
+    <div class="owner-info" *ngIf="showProprietario">
+      <p>Usuário cadastrado:</p>
+      <span >Nome: {{proprietario.nome}}</span>
+      <br>
+      <span>Id: {{proprietario.id}}</span>
+    </div>
+   
+</form>
+        <form action="action_page.php">
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Título da sua publicação:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="nome" placeholder="Belíssima casa em Minas Gerais..." [(ngModel)]="imovel.nome" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Valor</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="valor" placeholder="3000,00"  [(ngModel)]="imovel.valor">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="country">Tipo</label>
+            </div>
+            <div class="col-75">
+              <select id="tipo" name="tipo">
+                <option value="Apartamento" name ="Apartamento" ngDefaultControl [(ngModel)]="imovel.tipo">Apartamento</option>
+                <option value="Casa" name="casa" ngDefaultControl [(ngModel)]="imovel.tipo">Casa</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Condomínio:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="condominio" placeholder="300,00" [(ngModel)]="imovel.condominio">
+            </div>
+          </div>
+          <div class="row">
+         
+                <div class="col-25">
+                  <label>Quartos:</label>
+                </div>
+                <div class="col-75" >
+                  <select id="tipo" name="tipo" [(ngModel)]="imovel.quartos">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+         
+                <div class="col-25">
+                  <label>Banheiros:</label>
+                </div>
+                <div class="col-75" >
+                  <select id="tipo" name="banheiros" [(ngModel)]="imovel.banheiros">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+              </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Área:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="area" placeholder="" [(ngModel)]="imovel.area">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label >Aluguel:</label>
+            </div>
+            <div class="col-75">
+              <input type="checkbox" name="aluguel" [(ngModel)]="imovel.aluguel">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label >Venda:</label>
+            </div>
+            <div class="col-75">
+              <input type="checkbox" name="venda" [(ngModel)]="imovel.venda">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label >Mobiliado:</label>
+            </div>
+            <div class="col-75">
+              <input type="checkbox" name="mobiliado" [(ngModel)]="imovel.mobiliado">
+            </div>
+          </div>
+          <h1>Endereço</h1>
+
+
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Cep:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="cep" [(ngModel)]="endereco.cep" (blur) ="buscarCep()">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Bairro:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="bairro"[(ngModel)]="endereco.bairro">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Complemento:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="complemento" [(ngModel)]="endereco.complemento">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Estado:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="estado"  [(ngModel)]="endereco.uf">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Logradouro:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="logradouro" [(ngModel)]="endereco.logradouro">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Cidade:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="nome"[(ngModel)]="endereco.localidade">
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Publicar" (click)="publicar()">
+          </div>
+        </form>
+      </div>
+
+<h1>Imóveis cadastrados</h1>
+
+    <app-imoveis-card
+    *ngFor ="let imo of imoveis"
+    [propriedade] = "imo"
+    (deletados) ="listarImoveis()"
+    >
+
+    </app-imoveis-card>
+
+
